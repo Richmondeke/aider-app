@@ -5,13 +5,25 @@ import { motion } from "framer-motion";
 export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] text-white px-6 overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900 via-black to-black"></div>
+            {/* Background Video */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute min-w-full min-h-full object-cover opacity-40"
+                >
+                    <source src="/aider.mp4" type="video/mp4" />
+                </video>
+                {/* Overlay to ensure text readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 z-1" />
+            </div>
 
             {/* Animated Dot Grid */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
                 <div
-                    className="absolute inset-0 opacity-30"
+                    className="absolute inset-0 opacity-20"
                     style={{
                         backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
                         backgroundSize: '40px 40px'
@@ -21,7 +33,7 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 2 }}
-                    className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.1),_transparent_70%)]"
+                    className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.15),_transparent_70%)]"
                 />
             </div>
 
