@@ -1,13 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play().catch(error => {
+                console.error("Autoplay was prevented:", error);
+            });
+        }
+    }, []);
+
     return (
         <section className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] text-white px-6 overflow-hidden">
             {/* Background Video */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <video
+                    ref={videoRef}
                     autoPlay
                     loop
                     muted
