@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Package } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function Products() {
     return (
@@ -35,10 +36,15 @@ export default function Products() {
                             rotateY: -1,
                             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
                         }}
-                        className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col items-start cursor-default transition-shadow duration-300"
+                        className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col items-start cursor-default transition-shadow duration-300 group overflow-hidden"
                     >
-                        <div className="p-4 bg-blue-50 rounded-2xl mb-8 group-hover:bg-blue-100 transition-colors">
-                            <Package className="w-8 h-8 text-blue-600" />
+                        <div className="relative w-full aspect-video mb-8 rounded-2xl overflow-hidden border border-gray-100 shadow-inner group-hover:scale-[1.02] transition-transform duration-500">
+                            <Image
+                                src="/images/dashboard-preview.png"
+                                alt="Dashboard Preview"
+                                fill
+                                className="object-cover"
+                            />
                         </div>
                         <h3 className="text-3xl font-bold mb-4">Inventory Management</h3>
                         <p className="text-gray-600 mb-10 flex-1 text-lg">
