@@ -1,37 +1,29 @@
-"use client";
-
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase/config";
+import Header from "@/components/landing/Header";
+import Hero from "@/components/landing/Hero";
+import Services from "@/components/landing/Services";
+import Process from "@/components/landing/Process";
+import Products from "@/components/landing/Products";
+import DetailedServices from "@/components/landing/DetailedServices";
+import StickyTransition from "@/components/landing/StickyTransition";
 
 export default function Home() {
-  const { user, loading } = useAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!loading) {
-      if (!user) {
-        router.push("/auth/login");
-      } else {
-        // Check if user is onboarded
-        const checkOnboarding = async () => {
-          const userDoc = await getDoc(doc(db, "users", user.uid));
-          if (userDoc.exists() && userDoc.data()?.onboarded) {
-            router.push("/dashboard");
-          } else {
-            router.push("/onboarding");
-          }
-        };
-        checkOnboarding();
-      }
-    }
-  }, [user, loading, router]);
-
   return (
-    <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
-      <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-    </div>
+    <main className="min-h-screen font-sans selection:bg-blue-500/30 overflow-x-hidden">
+      <Header />
+
+      <Hero />
+      <DetailedServices />
+      <Process />
+      <Products />
+
+      <footer className="bg-black text-white py-12 px-6 border-t border-white/10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-2xl font-bold tracking-tighter">AIDER.</div>
+          <div className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} Aider Inc. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }

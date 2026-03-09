@@ -40,8 +40,8 @@ export function Services() {
                             <div className="h-12 w-12 rounded-full bg-accent-glow/20 mb-6 flex items-center justify-center group-hover:scale-110 transition-transform relative z-10">
                                 <div className="h-4 w-4 rounded-full bg-accent-glow shadow-[0_0_10px_rgba(0,102,255,0.5)]" />
                             </div>
-                            <h3 className="text-xl font-medium text-white mb-2 relative z-10">{service}</h3>
-                            <p className="text-white/60 text-sm leading-relaxed relative z-10">
+                            <h3 className="text-xl font-medium text-zinc-900 mb-2 relative z-10">{service}</h3>
+                            <p className="text-zinc-900/60 text-sm leading-relaxed relative z-10">
                                 Streamlined solutions for modern business operations.
                             </p>
                         </motion.div>

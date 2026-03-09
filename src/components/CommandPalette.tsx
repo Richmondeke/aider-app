@@ -64,26 +64,26 @@ export function CommandPalette() {
                     initial={{ scale: 0.95, opacity: 0, y: -20 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     exit={{ scale: 0.95, opacity: 0, y: -20 }}
-                    className="w-full max-w-[640px] bg-zinc-900 border border-zinc-800 rounded-[32px] shadow-2xl overflow-hidden"
+                    className="w-full max-w-[640px] bg-zinc-50 border border-zinc-200 rounded-[32px] shadow-2xl overflow-hidden"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <div className="p-6 border-b border-zinc-800 flex items-center gap-4">
+                    <div className="p-6 border-b border-zinc-200 flex items-center gap-4">
                         <Search className="text-zinc-500" size={24} />
                         <input
                             autoFocus
                             type="text"
                             placeholder="Type a command or search..."
-                            className="bg-transparent border-none outline-none w-full text-xl font-bold text-white placeholder:text-zinc-600"
+                            className="bg-transparent border-none outline-none w-full text-xl font-bold text-zinc-900 placeholder:text-zinc-600"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
-                        <div className="flex items-center gap-1 bg-zinc-950 px-3 py-1.5 rounded-xl border border-zinc-800">
+                        <div className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-xl border border-zinc-200">
                             <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">ESC</span>
                         </div>
                     </div>
 
                     <div className="p-4 max-h-[400px] overflow-y-auto custom-scrollbar">
-                        <div className="px-4 py-2 border-b border-zinc-800/50 mb-2">
+                        <div className="px-4 py-2 border-b border-zinc-200/50 mb-2">
                             <span className="text-[10px] font-black text-zinc-600 uppercase tracking-widest flex items-center gap-2">
                                 <Zap size={12} />
                                 Quick Actions
@@ -98,17 +98,17 @@ export function CommandPalette() {
                                         router.push(action.path);
                                         setIsOpen(false);
                                     }}
-                                    className="w-full flex items-center justify-between p-4 rounded-2xl hover:bg-zinc-800/50 group transition-all"
+                                    className="w-full flex items-center justify-between p-4 rounded-2xl hover:bg-zinc-100/50 group transition-all"
                                 >
                                     <div className="flex items-center gap-4">
-                                        <div className="bg-zinc-950 p-2.5 rounded-xl border border-zinc-800 group-hover:border-blue-500/50 group-hover:text-blue-500 transition-all text-zinc-400">
+                                        <div className="bg-white p-2.5 rounded-xl border border-zinc-200 group-hover:border-blue-500/50 group-hover:text-red-500 transition-all text-zinc-500">
                                             <action.icon size={20} />
                                         </div>
-                                        <span className="font-bold text-zinc-300 group-hover:text-white transition-colors">{action.label}</span>
+                                        <span className="font-bold text-zinc-700 group-hover:text-zinc-900 transition-colors">{action.label}</span>
                                     </div>
                                     <div className="flex items-center gap-1">
                                         {action.shortcut.split(" ").map((key, i) => (
-                                            <span key={i} className="text-[10px] font-black text-zinc-600 bg-zinc-950 px-2 py-1 rounded-lg border border-zinc-800">
+                                            <span key={i} className="text-[10px] font-black text-zinc-600 bg-white px-2 py-1 rounded-lg border border-zinc-200">
                                                 {key}
                                             </span>
                                         ))}
@@ -124,7 +124,7 @@ export function CommandPalette() {
                         </div>
                     </div>
 
-                    <div className="p-4 bg-zinc-950/50 border-t border-zinc-800 flex items-center justify-between">
+                    <div className="p-4 bg-white/50 border-t border-zinc-200 flex items-center justify-between">
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-1.5 text-zinc-500 italic">
                                 <Command size={14} />

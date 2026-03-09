@@ -83,10 +83,10 @@ export default function OnboardingPage() {
     };
 
     return (
-        <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6 relative overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-600/5 blur-[100px] rounded-full" />
+                <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-red-600/5 blur-[100px] rounded-full" />
                 <div className="absolute bottom-[20%] left-[10%] w-[30%] h-[30%] bg-purple-600/5 blur-[100px] rounded-full" />
             </div>
 
@@ -98,7 +98,7 @@ export default function OnboardingPage() {
                             key={step.id}
                             className={cn(
                                 "h-1.5 flex-1 rounded-full transition-all duration-300",
-                                idx <= currentStep ? "bg-blue-600" : "bg-zinc-800"
+                                idx <= currentStep ? "bg-red-600" : "bg-zinc-100"
                             )}
                         />
                     ))}
@@ -110,14 +110,14 @@ export default function OnboardingPage() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 p-10 rounded-[32px] shadow-2xl"
+                        className="bg-zinc-50/50 backdrop-blur-xl border border-zinc-200 p-10 rounded-[32px] shadow-2xl"
                     >
                         <div className="flex items-center gap-4 mb-8">
-                            <div className="bg-blue-600/10 p-3 rounded-2xl">
-                                {React.createElement(steps[currentStep].icon, { className: "text-blue-500", size: 28 })}
+                            <div className="bg-red-600/10 p-3 rounded-2xl">
+                                {React.createElement(steps[currentStep].icon, { className: "text-red-500", size: 28 })}
                             </div>
                             <div>
-                                <h2 className="text-2xl font-bold text-white leading-none mb-1">{steps[currentStep].title}</h2>
+                                <h2 className="text-2xl font-bold text-zinc-900 leading-none mb-1">{steps[currentStep].title}</h2>
                                 <p className="text-zinc-500">{steps[currentStep].description}</p>
                             </div>
                         </div>
@@ -126,13 +126,13 @@ export default function OnboardingPage() {
                             {currentStep === 0 && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-zinc-300 ml-1">Business Registered Name</label>
+                                        <label className="text-sm font-medium text-zinc-700 ml-1">Business Registered Name</label>
                                         <input
                                             type="text"
                                             placeholder="e.g. Acme Corporation"
                                             value={formData.businessName}
                                             onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                                            className="w-full bg-zinc-950 border border-zinc-800 focus:border-blue-500 rounded-2xl p-4 text-white outline-none transition-all"
+                                            className="w-full bg-white border border-zinc-200 focus:border-red-500 rounded-2xl p-4 text-zinc-900 outline-none transition-all"
                                         />
                                     </div>
                                 </motion.div>
@@ -150,10 +150,10 @@ export default function OnboardingPage() {
                                             key={type.id}
                                             onClick={() => setFormData({ ...formData, businessType: type.id })}
                                             className={cn(
-                                                "flex flex-col items-center gap-4 p-6 rounded-3xl border transition-all hover:bg-zinc-800/50",
+                                                "flex flex-col items-center gap-4 p-6 rounded-3xl border transition-all hover:bg-zinc-100/50",
                                                 formData.businessType === type.id
-                                                    ? "bg-blue-600/10 border-blue-600 text-blue-400"
-                                                    : "bg-zinc-950/50 border-zinc-800 text-zinc-400"
+                                                    ? "bg-red-600/10 border-blue-600 text-red-600"
+                                                    : "bg-white/50 border-zinc-200 text-zinc-500"
                                             )}
                                         >
                                             <type.icon size={32} />
@@ -166,11 +166,11 @@ export default function OnboardingPage() {
                             {currentStep === 2 && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-zinc-300 ml-1">Default Currency</label>
+                                        <label className="text-sm font-medium text-zinc-700 ml-1">Default Currency</label>
                                         <select
                                             value={formData.currency}
                                             onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
-                                            className="w-full bg-zinc-950 border border-zinc-800 focus:border-blue-500 rounded-2xl p-4 text-white outline-none appearance-none"
+                                            className="w-full bg-white border border-zinc-200 focus:border-red-500 rounded-2xl p-4 text-zinc-900 outline-none appearance-none"
                                         >
                                             <option value="USD">USD ($)</option>
                                             <option value="EUR">EUR (€)</option>
@@ -179,13 +179,13 @@ export default function OnboardingPage() {
                                         </select>
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-zinc-300 ml-1">Default Tax Rate (%)</label>
+                                        <label className="text-sm font-medium text-zinc-700 ml-1">Default Tax Rate (%)</label>
                                         <input
                                             type="number"
                                             placeholder="0"
                                             value={formData.taxRate}
                                             onChange={(e) => setFormData({ ...formData, taxRate: e.target.value })}
-                                            className="w-full bg-zinc-950 border border-zinc-800 focus:border-blue-500 rounded-2xl p-4 text-white outline-none"
+                                            className="w-full bg-white border border-zinc-200 focus:border-red-500 rounded-2xl p-4 text-zinc-900 outline-none"
                                         />
                                     </div>
                                 </motion.div>
@@ -198,7 +198,7 @@ export default function OnboardingPage() {
                                 disabled={currentStep === 0}
                                 className={cn(
                                     "px-8 py-3.5 rounded-2xl font-semibold flex items-center gap-2 transition-all",
-                                    currentStep === 0 ? "opacity-0 pointer-events-none" : "text-zinc-400 hover:text-white"
+                                    currentStep === 0 ? "opacity-0 pointer-events-none" : "text-zinc-500 hover:text-zinc-900"
                                 )}
                             >
                                 <ArrowLeft size={20} />
@@ -207,7 +207,7 @@ export default function OnboardingPage() {
                             <button
                                 onClick={nextStep}
                                 disabled={currentStep === 0 && !formData.businessName}
-                                className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 text-white px-10 py-3.5 rounded-2xl font-bold flex items-center gap-2 group transition-all shadow-xl shadow-blue-600/20"
+                                className="bg-red-600 hover:bg-red-700 disabled:bg-red-600/50 text-white px-10 py-3.5 rounded-2xl font-bold flex items-center gap-2 group transition-all shadow-xl shadow-red-600/20"
                             >
                                 {currentStep === steps.length - 1 ? "Get Started" : "Continue"}
                                 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />

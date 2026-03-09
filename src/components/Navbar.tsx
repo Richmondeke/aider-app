@@ -17,10 +17,10 @@ export function Navbar() {
             </Link>
 
             <div className="flex items-center gap-4">
-                <Link href="/projects" className="text-sm font-medium text-white/70 hover:text-white transition-colors hidden md:block">
+                <Link href="/projects" className="text-sm font-medium text-zinc-900/70 hover:text-zinc-900 transition-colors hidden md:block">
                     Projects
                 </Link>
-                <Link href="/about" className="text-sm font-medium text-white/70 hover:text-white transition-colors hidden md:block">
+                <Link href="/about" className="text-sm font-medium text-zinc-900/70 hover:text-zinc-900 transition-colors hidden md:block">
                     About
                 </Link>
                 <Button variant="secondary" size="sm" className="ml-4">

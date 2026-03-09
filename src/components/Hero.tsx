@@ -18,7 +18,7 @@ export function Hero() {
                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 w-fit"
                 >
                     <div className="w-1.5 h-1.5 rounded-full bg-accent-glow animate-pulse" />
-                    <span className="text-xs md:text-sm text-white/80 font-sans tracking-wide uppercase font-semibold">Automating your Brand Operations</span>
+                    <span className="text-xs md:text-sm text-zinc-900/80 font-sans tracking-wide uppercase font-semibold">Automating your Brand Operations</span>
                 </motion.div>
 
                 <motion.h1
@@ -28,16 +28,16 @@ export function Hero() {
                     className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-8"
                 >
                     Systems that work, <br />
-                    <span className="text-white/40">results that matter.</span>
+                    <span className="text-zinc-900/40">results that matter.</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed mb-10 font-sans"
+                    className="text-lg md:text-xl text-zinc-900/60 max-w-2xl leading-relaxed mb-10 font-sans"
                 >
-                    AIDER partners with businesses to design, implement, and manage operational systems that drive real performance. We don't advise and disappear—we stay until the system works.
+                    AIDER partners with businesses to design, implement, and manage operational systems that drive real performance. We don&apos;t advise and disappear—we stay until the system works.
                 </motion.p>
 
                 <motion.div

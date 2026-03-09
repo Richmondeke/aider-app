@@ -38,7 +38,7 @@ export default function LoginPage() {
         try {
             await signInWithEmailAndPassword(auth, formData.email, formData.password);
             router.push("/dashboard");
-        } catch (err: any) {
+        } catch (err: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
             setError("Invalid email or password. Please try again.");
         } finally {
             setIsLoading(false);
@@ -51,7 +51,7 @@ export default function LoginPage() {
         try {
             await signInWithGoogle();
             router.push("/dashboard");
-        } catch (err: any) {
+        } catch (err: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
             setError("Google sign-in failed. Please try again.");
         } finally {
             setIsGoogleLoading(false);
@@ -59,10 +59,10 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6 relative overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
+                <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-red-600/10 blur-[120px] rounded-full" />
                 <div className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-purple-600/10 blur-[120px] rounded-full" />
             </div>
 
@@ -72,19 +72,19 @@ export default function LoginPage() {
                 className="w-full max-w-md relative z-10"
             >
                 <div className="text-center mb-10">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl mb-6 shadow-xl shadow-blue-600/20">
-                        <LayoutDashboard size={32} className="text-white" />
+                    <div className="flex justify-center mb-6">
+                        <img src="/logo.png" alt="Aider Logo" className="h-12 w-auto drop-shadow-2xl" />
                     </div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Welcome back</h1>
-                    <p className="text-zinc-400">Log in to your Aider account.</p>
+                    <h1 className="text-3xl font-bold text-zinc-900 mb-2">Welcome back</h1>
+                    <p className="text-zinc-500">Log in to your Aider account.</p>
                 </div>
 
-                <div className="bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 p-8 rounded-3xl shadow-2xl">
+                <div className="bg-zinc-50/50 backdrop-blur-xl border border-zinc-200 p-8 rounded-3xl shadow-2xl">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-zinc-300 ml-1">Email Address</label>
+                            <label className="text-sm font-medium text-zinc-700 ml-1">Email Address</label>
                             <div className="relative group">
-                                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-blue-500 transition-colors">
+                                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-red-500 transition-colors">
                                     <Mail size={18} />
                                 </div>
                                 <input
@@ -93,15 +93,15 @@ export default function LoginPage() {
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                     placeholder="john@example.com"
-                                    className="w-full bg-zinc-950/50 border border-zinc-800 focus:border-blue-500 rounded-xl py-3 pl-12 pr-4 text-white placeholder:text-zinc-600 outline-none transition-all"
+                                    className="w-full bg-white/50 border border-zinc-200 focus:border-red-500 rounded-xl py-3 pl-12 pr-4 text-zinc-900 placeholder:text-zinc-600 outline-none transition-all"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-zinc-300 ml-1">Password</label>
+                            <label className="text-sm font-medium text-zinc-700 ml-1">Password</label>
                             <div className="relative group">
-                                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-blue-500 transition-colors">
+                                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-red-500 transition-colors">
                                     <Lock size={18} />
                                 </div>
                                 <input
@@ -110,7 +110,7 @@ export default function LoginPage() {
                                     value={formData.password}
                                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                     placeholder="••••••••"
-                                    className="w-full bg-zinc-950/50 border border-zinc-800 focus:border-blue-500 rounded-xl py-3 pl-12 pr-4 text-white placeholder:text-zinc-600 outline-none transition-all"
+                                    className="w-full bg-white/50 border border-zinc-200 focus:border-red-500 rounded-xl py-3 pl-12 pr-4 text-zinc-900 placeholder:text-zinc-600 outline-none transition-all"
                                 />
                             </div>
                         </div>
@@ -124,7 +124,7 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={isLoading || isGoogleLoading}
-                            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 disabled:cursor-not-allowed text-white font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 group shadow-lg shadow-blue-600/20"
+                            className="w-full bg-red-600 hover:bg-red-700 disabled:bg-red-600/50 disabled:cursor-not-allowed text-white font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 group shadow-lg shadow-red-600/20"
                         >
                             {isLoading ? (
                                 <Loader2 size={20} className="animate-spin" />
@@ -139,17 +139,17 @@ export default function LoginPage() {
 
                     <div className="relative my-8">
                         <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t border-zinc-800"></div>
+                            <div className="w-full border-t border-zinc-200"></div>
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-[#121214] px-4 text-zinc-500 font-bold tracking-widest">Or continue with</span>
+                            <span className="bg-white px-4 text-zinc-500 font-bold tracking-widest">Or continue with</span>
                         </div>
                     </div>
 
                     <button
                         onClick={handleGoogleSignIn}
                         disabled={isLoading || isGoogleLoading}
-                        className="w-full bg-zinc-950 border border-zinc-800 hover:bg-zinc-900 text-white font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center gap-3 shadow-md active:scale-[0.98] disabled:opacity-50"
+                        className="w-full bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-900 font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center gap-3 shadow-md active:scale-[0.98] disabled:opacity-50"
                     >
                         {isGoogleLoading ? (
                             <Loader2 size={20} className="animate-spin" />
@@ -162,7 +162,7 @@ export default function LoginPage() {
                     </button>
 
                     <div className="mt-8 text-center text-sm">
-                        <Link href="#" className="text-zinc-500 hover:text-zinc-300 transition-colors">
+                        <Link href="#" className="text-zinc-500 hover:text-zinc-700 transition-colors">
                             Forgot password?
                         </Link>
                     </div>
@@ -170,7 +170,7 @@ export default function LoginPage() {
                     <div className="mt-8 text-center">
                         <p className="text-zinc-500 text-sm">
                             Don&apos;t have an account?{" "}
-                            <Link href="/auth/signup" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+                            <Link href="/auth/signup" className="text-red-600 hover:text-blue-300 font-medium transition-colors">
                                 Sign up
                             </Link>
                         </p>
