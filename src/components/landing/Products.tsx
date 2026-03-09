@@ -40,7 +40,7 @@ export default function Products() {
                     >
                         <div className="relative w-full aspect-video mb-8 rounded-2xl overflow-hidden border border-gray-100 shadow-inner group-hover:scale-[1.02] transition-transform duration-500">
                             <Image
-                                src="/images/dashboard-preview.png"
+                                src="/Screenshot.png"
                                 alt="Dashboard Preview"
                                 fill
                                 className="object-cover"

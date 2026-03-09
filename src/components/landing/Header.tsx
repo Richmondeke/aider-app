@@ -33,8 +33,13 @@ export default function Header() {
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-                <Link href="/" className="text-2xl font-bold tracking-tighter">
-                    AIDER.
+                <Link href="/" className="flex items-center">
+                    <img
+                        src="/logo.png"
+                        alt="Aider"
+                        className={`h-8 w-auto object-contain transition-all duration-300 ${isPastHero ? '' : 'brightness-0 invert'
+                            }`}
+                    />
                 </Link>
 
                 {/* Desktop Nav */}

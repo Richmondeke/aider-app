@@ -18,7 +18,7 @@ export default function Home() {
 
       <footer className="bg-black text-white py-12 px-6 border-t border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-2xl font-bold tracking-tighter">AIDER.</div>
+          <img src="/logo.png" alt="Aider" className="h-8 w-auto object-contain brightness-0 invert" />
           <div className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Aider Inc. All rights reserved.
           </div>
