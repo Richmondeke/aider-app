@@ -83,7 +83,7 @@ export default function Hero() {
             </div>
 
             <motion.div
-                className="absolute bottom-20 w-full overflow-hidden whitespace-nowrap py-8 border-y border-white/5 bg-black/20 backdrop-blur-sm z-20"
+                className="absolute bottom-32 w-full overflow-hidden whitespace-nowrap py-8 border-y border-white/5 bg-black/20 backdrop-blur-sm z-20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 1 }}
@@ -99,7 +99,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-                className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-gray-500 text-xs z-20"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-gray-500 text-xs z-20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
