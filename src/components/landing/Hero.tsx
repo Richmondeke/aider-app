@@ -24,6 +24,8 @@ export default function Hero() {
                     loop
                     muted
                     playsInline
+                    poster="/hero-poster.jpg"
+                    preload="auto"
                     className="absolute min-w-full min-h-full object-cover opacity-40"
                 >
                     <source src="/aider.mp4" type="video/mp4" />
