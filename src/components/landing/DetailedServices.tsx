@@ -76,18 +76,29 @@ export default function DetailedServices() {
                 </motion.div>
 
                 {/* Categories Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24 [perspective:1000px]">
                     {serviceCategories.map((category, idx) => (
                         <motion.div
                             key={category.title}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1 }}
-                            className="group p-8 rounded-3xl bg-gray-900/30 border border-gray-800 hover:border-gray-700 transition-all duration-300"
+                            transition={{
+                                delay: idx * 0.1,
+                                duration: 0.5,
+                                ease: "easeOut"
+                            }}
+                            whileHover={{
+                                scale: 1.02,
+                                translateZ: 20,
+                                rotateX: 2,
+                                rotateY: -1,
+                                boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.05)"
+                            }}
+                            className="group p-8 rounded-3xl bg-gray-900/30 border border-gray-800 hover:border-blue-900/50 transition-colors duration-300 cursor-default"
                         >
                             <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 rounded-xl bg-gray-800 text-gray-400 group-hover:text-white transition-colors">
+                                <div className="p-3 rounded-xl bg-gray-800 text-gray-400 group-hover:text-blue-400 transition-colors">
                                     {category.icon}
                                 </div>
                                 <h3 className="text-2xl font-bold">{category.title}</h3>
@@ -99,21 +110,40 @@ export default function DetailedServices() {
                     ))}
                 </div>
 
-                {/* Expertise Tag Cloud */}
-                <div className="relative pt-12 border-t border-gray-900 overflow-hidden">
-                    <div className="flex flex-wrap justify-center gap-4 opacity-40">
-                        {expertiseTags.map((tag, i) => (
-                            <motion.div
-                                key={tag}
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.05 }}
-                                className="flex items-center gap-2 text-sm text-gray-500 px-4 py-2 rounded-full border border-gray-900 whitespace-nowrap"
-                            >
-                                {tag}
-                            </motion.div>
-                        ))}
+                {/* Expertise Tag Cloud - Opposite Scroll Marquee */}
+                <div className="relative pt-12 border-t border-gray-900 overflow-hidden flex flex-col gap-4">
+                    {/* Row 1: Left Scroll */}
+                    <div className="flex overflow-hidden whitespace-nowrap">
+                        <motion.div
+                            className="flex gap-4 pr-4"
+                            animate={{ x: [0, -1000] }}
+                            transition={{
+                                x: { repeat: Infinity, duration: 40, ease: "linear" }
+                            }}
+                        >
+                            {[...expertiseTags, ...expertiseTags, ...expertiseTags].map((tag, i) => (
+                                <div key={i} className="flex items-center gap-2 text-sm text-gray-500 px-6 py-2 rounded-full border border-gray-900/50 bg-gray-900/20 whitespace-nowrap">
+                                    {tag}
+                                </div>
+                            ))}
+                        </motion.div>
+                    </div>
+
+                    {/* Row 2: Right Scroll */}
+                    <div className="flex overflow-hidden whitespace-nowrap">
+                        <motion.div
+                            className="flex gap-4 pr-4"
+                            animate={{ x: [-1000, 0] }}
+                            transition={{
+                                x: { repeat: Infinity, duration: 45, ease: "linear" }
+                            }}
+                        >
+                            {[...expertiseTags, ...expertiseTags, ...expertiseTags].map((tag, i) => (
+                                <div key={i} className="flex items-center gap-2 text-sm text-gray-500 px-6 py-2 rounded-full border border-gray-900/50 bg-gray-900/20 whitespace-nowrap">
+                                    {tag}
+                                </div>
+                            ))}
+                        </motion.div>
                     </div>
                 </div>
             </div>

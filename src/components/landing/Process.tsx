@@ -37,7 +37,7 @@ export default function Process() {
                     </p>
                 </motion.div>
 
-                <div className="space-y-12 md:space-y-24">
+                <div className="space-y-12 md:space-y-24 [perspective:1000px]">
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
@@ -45,11 +45,17 @@ export default function Process() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.7 }}
-                            className="flex flex-col md:flex-row border-t border-gray-800 pt-12 md:pt-24 gap-8 md:gap-24"
+                            whileHover={{
+                                x: 10,
+                                scale: 1.01,
+                                translateZ: 20,
+                                backgroundColor: "rgba(255, 255, 255, 0.02)"
+                            }}
+                            className="flex flex-col md:flex-row border-t border-gray-800 pt-12 md:pt-24 gap-8 md:gap-24 transition-all duration-300 rounded-xl px-4 -mx-4 cursor-default"
                         >
                             <div className="text-blue-500 font-mono text-xl">{step.number}</div>
                             <div className="flex-1">
-                                <h3 className="text-3xl md:text-5xl font-semibold mb-6">{step.title}</h3>
+                                <h3 className="text-3xl md:text-5xl font-semibold mb-6 group-hover:text-blue-400 transition-colors">{step.title}</h3>
                                 <p className="text-xl text-gray-400 max-w-2xl">{step.description}</p>
                             </div>
                         </motion.div>
