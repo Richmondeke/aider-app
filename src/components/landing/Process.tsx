@@ -37,26 +37,39 @@ export default function Process() {
                     </p>
                 </motion.div>
 
-                <div className="space-y-12 md:space-y-24 [perspective:1000px]">
+                <div className="space-y-4 md:space-y-6">
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.7 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
                             whileHover={{
-                                x: 10,
-                                scale: 1.01,
-                                translateZ: 20,
-                                backgroundColor: "rgba(255, 255, 255, 0.02)"
+                                scale: 1.005,
+                                backgroundColor: "rgba(225, 29, 72, 0.03)",
                             }}
-                            className="flex flex-col md:flex-row border-t border-gray-800 pt-12 md:pt-24 gap-8 md:gap-24 transition-all duration-300 rounded-xl px-4 -mx-4 cursor-default"
+                            className="group flex flex-col md:flex-row items-start md:items-center border border-white/5 bg-white/[0.01] p-8 md:p-12 gap-8 md:gap-16 transition-all duration-300 rounded-[2rem] cursor-default hover:border-primary/20 hover:shadow-premium"
                         >
-                            <div className="text-blue-500 font-mono text-xl">{step.number}</div>
+                            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary font-mono text-xl font-bold border border-primary/20 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-glow">
+                                {step.number}
+                            </div>
                             <div className="flex-1">
-                                <h3 className="text-3xl md:text-5xl font-semibold mb-6 group-hover:text-blue-400 transition-colors">{step.title}</h3>
-                                <p className="text-xl text-gray-400 max-w-2xl">{step.description}</p>
+                                <h3 className="text-2xl md:text-4xl font-bold mb-4 group-hover:text-primary transition-colors tracking-tight">
+                                    {step.title}
+                                </h3>
+                                <p className="text-lg md:text-xl text-gray-400 max-w-3xl leading-relaxed">
+                                    {step.description}
+                                </p>
+                            </div>
+                            <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <motion.div
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ repeat: Infinity, duration: 1.5 }}
+                                    className="text-primary"
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
+                                </motion.div>
                             </div>
                         </motion.div>
                     ))}

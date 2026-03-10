@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const services = [
     "Product Design",
@@ -42,10 +43,17 @@ export default function Services({ isRevealed = false }: { isRevealed?: boolean 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.8, delay: i * 0.05, ease: "easeOut" }}
-                            whileHover={{ y: -5, borderColor: "rgba(225, 29, 72, 0.3)" }}
-                            className="group p-8 border border-gray-100 rounded-2xl transition-all duration-300 bg-gray-50/50 hover:bg-white hover:shadow-premium-xl active:scale-[0.98]"
+                            whileHover={{
+                                y: -10,
+                                borderColor: "rgba(225, 29, 72, 0.2)",
+                                backgroundColor: "rgba(255, 255, 255, 1)"
+                            }}
+                            className="group p-8 border border-zinc-100 rounded-3xl transition-all duration-500 bg-zinc-50/50 hover:shadow-premium-xl active:scale-[0.98] flex flex-col justify-between min-h-[160px]"
                         >
-                            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">{service}</h3>
+                            <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors tracking-tight leading-tight">{service}</h3>
+                            <div className="mt-4 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <ArrowRight className="text-primary w-5 h-5" />
+                            </div>
                         </motion.div>
                     ))}
                 </div>

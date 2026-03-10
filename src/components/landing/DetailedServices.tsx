@@ -47,29 +47,29 @@ export default function DetailedServices() {
                     viewport={{ once: true }}
                     className="mb-12"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-800 bg-gray-900/50 text-xs text-gray-400 mb-8">
-                        <div className="w-2 h-2 rounded-full bg-gray-500" />
-                        Design services
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-xs text-primary/70 mb-8">
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                        Implementation Excellence
                     </div>
 
-                    <h2 className="text-5xl md:text-7xl font-bold mb-6">Services</h2>
+                    <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Services</h2>
                     <p className="text-xl text-gray-400 max-w-2xl mb-12">
                         We embed ourselves in your operations until the work is done.
                     </p>
 
                     <div className="flex flex-wrap gap-3 mb-16">
                         {topTags.map((tag) => (
-                            <span key={tag} className="px-4 py-2 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300">
+                            <span key={tag} className="px-5 py-2.5 rounded-xl bg-primary/5 border border-primary/10 text-sm font-semibold text-primary/80">
                                 {tag}
                             </span>
                         ))}
                     </div>
 
-                    <div className="flex gap-4 mb-20">
-                        <button className="px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                    <div className="flex flex-wrap gap-4 mb-20">
+                        <button className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary-dark transition-all shadow-glow hover:scale-105 active:scale-95">
                             Book a Free Call
                         </button>
-                        <button className="px-6 py-3 border border-gray-700 bg-gray-900/50 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                        <button className="px-8 py-4 border border-white/10 bg-white/5 backdrop-blur-md rounded-full font-bold hover:bg-white/10 transition-all hover:scale-105 active:scale-95">
                             See Projects
                         </button>
                     </div>
@@ -89,21 +89,18 @@ export default function DetailedServices() {
                                 ease: [0.22, 1, 0.36, 1]
                             }}
                             whileHover={{
-                                scale: 1.02,
-                                translateZ: 20,
-                                rotateX: 2,
-                                rotateY: -1,
-                                boxShadow: "0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(225,29,72,0.1)"
+                                scale: 1.01,
+                                backgroundColor: "rgba(225, 29, 72, 0.02)",
                             }}
-                            className="group p-8 rounded-3xl bg-gray-900/30 border border-gray-800 hover:border-primary/50 transition-all duration-500 cursor-default"
+                            className="group p-8 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-primary/20 transition-all duration-500 cursor-default shadow-premium hover:shadow-premium-xl"
                         >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 rounded-xl bg-gray-800 text-gray-400 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <div className="flex items-center gap-6 mb-8">
+                                <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 border border-primary/20">
                                     {category.icon}
                                 </div>
-                                <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{category.title}</h3>
+                                <h3 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors tracking-tight">{category.title}</h3>
                             </div>
-                            <p className="text-gray-400 leading-relaxed group-hover:text-gray-200 transition-colors">
+                            <p className="text-lg text-gray-400 leading-relaxed group-hover:text-gray-200 transition-colors">
                                 {category.description}
                             </p>
                         </motion.div>
