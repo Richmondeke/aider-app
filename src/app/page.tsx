@@ -5,6 +5,8 @@ import Process from "@/components/landing/Process";
 import Products from "@/components/landing/Products";
 import DetailedServices from "@/components/landing/DetailedServices";
 import StickyTransition from "@/components/landing/StickyTransition";
+import Team from "@/components/landing/Team";
+import Newsletter from "@/components/landing/Newsletter";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
       <DetailedServices />
       <Process />
       <Products />
+      <Team />
+      <Newsletter />
 
       <footer className="bg-black text-white py-12 px-6 border-t border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">

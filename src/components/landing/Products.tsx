@@ -25,37 +25,38 @@ export default function Products() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 [perspective:1000px]">
                     {/* Inventory Management Product Card */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.6 }}
+                        initial={{ opacity: 0, rotateX: -10, y: 50 }}
+                        whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                         whileHover={{
                             scale: 1.02,
                             translateZ: 30,
                             rotateX: 1,
                             rotateY: -1,
-                            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
+                            boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.2)"
                         }}
-                        className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col items-start cursor-default transition-shadow duration-300 group overflow-hidden"
+                        className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col items-start cursor-default transition-all duration-300 group overflow-hidden"
                     >
-                        <div className="relative w-full aspect-video mb-8 rounded-2xl overflow-hidden border border-gray-100 shadow-inner group-hover:scale-[1.02] transition-transform duration-500">
+                        <div className="relative w-full aspect-video mb-8 rounded-2xl overflow-hidden border border-gray-100 shadow-inner group-hover:scale-[1.05] transition-transform duration-700">
                             <Image
                                 src="/Screenshot.png"
                                 alt="Dashboard Preview"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
                         </div>
-                        <h3 className="text-3xl font-bold mb-4">Inventory Management</h3>
-                        <p className="text-gray-600 mb-10 flex-1 text-lg">
+                        <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">Inventory Management</h3>
+                        <p className="text-gray-600 mb-10 flex-1 text-lg leading-relaxed">
                             Take complete control of your stock. Track levels in real-time, automate reordering, and gain insights into your most profitable items across multiple locations.
                         </p>
                         <Link
                             href="/dashboard"
-                            className="group inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors font-medium border border-transparent shadow-lg shadow-black/10 hover:shadow-black/20"
+                            className="group relative inline-flex items-center gap-2 bg-black text-white px-8 py-3.5 rounded-full overflow-hidden transition-all duration-300 hover:bg-primary hover:shadow-lg hover:shadow-primary/20 font-semibold"
                         >
-                            Access Tool
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            <span className="relative z-10">Access Tool</span>
+                            <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+                            <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                         </Link>
                     </motion.div>
 

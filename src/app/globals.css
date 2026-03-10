@@ -6,11 +6,28 @@
 
   --color-background: #ffffff;
   --color-foreground: #09090b;
-  --color-primary: #dc2626;
-  --color-primary-hover: #b91c1c;
+  --color-primary: #e11d48; /* Sophisticated Red (Rose 600) */
+  --color-primary-hover: #be123c; 
   --color-surface: #fafafa;
   --color-border: #e4e4e7;
   --color-muted: #71717a;
+  
+  --shadow-premium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-premium-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 * {

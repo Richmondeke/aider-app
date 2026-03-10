@@ -47,37 +47,53 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 2 }}
-                    className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.15),_transparent_70%)]"
+                    className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,_rgba(225,29,72,0.1),_transparent_70%)]"
                 />
             </div>
 
             <div className="relative z-10 max-w-5xl mx-auto text-center mt-[-4rem]">
                 <motion.h1
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.1]"
+                    initial={{ opacity: 0, y: 60, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                        duration: 1.2,
+                        ease: [0.22, 1, 0.36, 1], // Custom sophisticated cubic-bezier
+                    }}
                 >
                     Systems that work, <br className="hidden md:block" />
-                    <span className="text-blue-500">results that matter.</span>
+                    <span className="text-primary relative inline-block">
+                        results that matter.
+                        <motion.span
+                            initial={{ scaleX: 0 }}
+                            animate={{ scaleX: 1 }}
+                            transition={{ delay: 1, duration: 0.8 }}
+                            className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 origin-left rounded-full"
+                        />
+                    </span>
                 </motion.h1>
 
                 <motion.p
                     className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10"
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                    transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                 >
                     AIDER partners with businesses to design, implement, and manage operational systems that drive real performance.
                 </motion.p>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
-                    <a href="#services" className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-black bg-white rounded-full hover:bg-gray-200 transition-colors">
-                        Get Started Now
+                    <a href="#services" className="group relative inline-flex items-center justify-center px-10 py-4 text-sm font-semibold text-white bg-primary rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-hover hover:shadow-[0_0_20px_rgba(225,29,72,0.4)]">
+                        <span className="relative z-10 italic">Get Started Now</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:animate-shimmer" />
+                    </a>
+                    <a href="/auth/login" className="inline-flex items-center justify-center px-10 py-4 text-sm font-semibold text-white border border-white/10 rounded-full hover:bg-white/5 transition-colors backdrop-blur-sm">
+                        Client Portal
                     </a>
                 </motion.div>
             </div>

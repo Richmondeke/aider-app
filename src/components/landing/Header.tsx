@@ -26,9 +26,9 @@ export default function Header() {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isPastHero
-                ? "bg-white/80 backdrop-blur-md border-b border-gray-100 py-4 text-black"
+                ? "glass border-b border-gray-100 py-4 text-black"
                 : isScrolled
-                    ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-4 text-white"
+                    ? "glass-dark border-b border-white/10 py-4 text-white"
                     : "bg-transparent py-6 text-white"
                 }`}
         >
@@ -44,10 +44,10 @@ export default function Header() {
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <Link href="#services" className="hover:text-blue-500 transition-colors">Services</Link>
-                    <Link href="#products" className="hover:text-blue-500 transition-colors">Products</Link>
-                    <a href="https://aidercorp.com/#projects" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">Portfolio</a>
-                    <Link href="/auth/login" className={`px-5 py-2.5 rounded-full transition-colors ${isPastHero ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-200'}`}>
+                    <Link href="#services" className="hover:text-primary transition-colors">Services</Link>
+                    <Link href="#products" className="hover:text-primary transition-colors">Products</Link>
+                    <a href="https://aidercorp.com/#projects" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">Portfolio</a>
+                    <Link href="/auth/login" className={`px-5 py-2.5 rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 ${isPastHero ? 'bg-primary text-white hover:bg-primary-hover shadow-premium' : 'bg-white text-black hover:bg-gray-100 shadow-premium'}`}>
                         Log In
                     </Link>
                 </nav>
