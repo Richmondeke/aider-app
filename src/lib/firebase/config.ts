@@ -28,8 +28,18 @@ if (process.env.NODE_ENV !== "production") {
     }
 }
 
-const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+const isFirebaseConfigured = !!firebaseConfig.apiKey;
 
-export { auth, db };
+let app;
+let auth: any = null;
+let db: any = null;
+
+if (isFirebaseConfigured) {
+    app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+} else {
+    console.warn("[Firebase] Skipping initialization due to missing API key.");
+}
+
+export { auth, db, isFirebaseConfigured };
